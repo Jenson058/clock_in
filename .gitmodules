@@ -1,0 +1,12 @@
+[submodule "web"]
+	url  = https://gitee.com/fengxinjie/new-web-template
+	path = web
+
+[submodule "service"]
+	url  = https://gitee.com/fengxinjie/new-service-template
+	path = service
+
+[submodule "app-template"]
+	url  = https://gitee.com/fengxinjie/app-template
+	path = app
+

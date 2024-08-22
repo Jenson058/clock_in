@@ -1,0 +1,92 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/home",
+      "style": {
+        "navigationBarTitleText": "主页",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/my/my",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/setting/setting",
+      "style": {
+        "navigationBarTitleText": "设置",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/transaction/transaction",
+      "style": {
+        "navigationBarTitleText": "事务",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/renewal/renewal",
+      "style": {
+        "navigationBarTitleText": "版本更新",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/renewal/about",
+      "style": {
+        "navigationBarTitleText": "关于软件",
+        "enablePullDownRefresh": false
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#BBBAC7",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页",
+        "iconPath": "./static/icon/home.png",
+        "selectedIconPath": "./static/icon/home_select.png"
+      },
+      {
+        "pagePath": "pages/transaction/transaction",
+        "text": "事务",
+        "iconPath": "./static/icon/renewal.png",
+        "selectedIconPath": "./static/icon/renewal_select.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./static/icon/my.png",
+        "selectedIconPath": "./static/icon/my_select.png"
+      }
+    ],
+    "backgroundColor": ""
+  },
+  "easycom": {
+    "custom": {
+      "^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
+      "^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
+      "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
+    }
+  }
+}

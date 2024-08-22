@@ -1,0 +1,34 @@
+// @ts-nocheck
+export const en_US = {
+    router:{
+        admin:"admin",
+        home:"home",
+        home_index:"home_index",
+        login:"login",
+        user:"user",
+        user_list:"user_list",
+        auth:"auth",
+        role:"role"
+    },
+    auth:{
+        key:{
+            user:"user",
+            auth:"auth",
+            role:"role",
+            clock:"clock"
+        },
+        controls:{
+            add:'add',
+            edit:'edit',
+            delete:'delete',
+            retrieve:'retrieve'
+        }
+    },
+    btn:{
+        add:'add',
+        edit:'edit',
+        delete:'delete',
+        role:"role",
+        deleteAll:"deleteAll"
+    }
+}

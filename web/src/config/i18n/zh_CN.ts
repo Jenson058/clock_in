@@ -1,0 +1,34 @@
+// @ts-nocheck
+export const zh_CN = {
+    router:{
+        admin:"管理系统",
+        home:"主页",
+        home_index:"主页-首页",
+        login:"登录",
+        user:"用户",
+        user_list:"用户列表",
+        auth:"权限",
+        role:"角色"
+    },
+    auth:{
+        key:{
+            user:"用户",
+            auth:"权限",
+            role:"角色",
+            clock:"打卡"
+        },
+        controls:{
+            add:'添加',
+            edit:'修改',
+            delete:'删除',
+            retrieve:'查看'
+        }
+    },
+    btn:{
+        add:'添加',
+        edit:'修改',
+        delete:'删除',
+        role:"权限",
+        deleteAll:"删除全部"
+    }
+}
