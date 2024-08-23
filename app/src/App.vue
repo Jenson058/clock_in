@@ -1,7 +1,9 @@
 <template></template>
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from "@dcloudio/uni-app";
+import AppUpdate from "@/AppUpdate";
 onLaunch(() => {
+  AppUpdate()
   console.log("App Launch");
 });
 onShow(() => {

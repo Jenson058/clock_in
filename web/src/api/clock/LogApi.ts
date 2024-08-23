@@ -4,17 +4,21 @@ import {LogBo, LogSearchBo, LogVo} from "@/common/dto/clock/Log";
 import {GetMapping, HttpMapping, PostMapping, RequestBody, RequestParam, useRequest} from "@/config/request";
 import Result from "@/common/basic/Result";
 import {FileVo} from "@/common/dto/file/File";
+import {axiosRequest} from "@/config/axios";
 
-@HttpMapping("/log")
 class LogApi extends SuperApi<LogVo,LogBo,LogSearchBo>{
 
-    @PostMapping("/clock_in")
-    async clockIn(@RequestBody() logBo:LogBo):Promise<Result<FileVo> | undefined>{}
+    constructor() {
+        super("log");
+    }
 
-    @PostMapping("/to_day")
-    async toDayIsClockIn(@RequestBody() logSearchBo:LogSearchBo):Promise<Result<boolean> | undefined>{
-        return undefined;
+    async clockIn(logBo:LogBo){
+        return await axiosRequest.post<LogBo,Result<LogVo>>(`/log/clock_in`,logBo)
+    }
+
+    async toDayIsClockIn(logSearchBo:LogSearchBo){
+        return await axiosRequest.post<LogBo,Result<boolean>>(`/log/to_day`,logSearchBo);
     }
 }
 
-export default useRequest<LogApi>(LogApi)
+export default new LogApi()

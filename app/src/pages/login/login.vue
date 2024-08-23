@@ -31,8 +31,8 @@ const loginBo = ref(new LoginBo())
 const systemStore = useSystemStore()
 
 function login() {
-  LoginApi.login(loginBo.value).then(async (it) => {
-    let loginVo = it?.content ?? new LoginVo()
+  LoginApi.login(loginBo.value).then(async (result) => {
+    let loginVo = result?.data ?? new LoginVo()
     uni.setStorageSync("token", loginVo?.token as string);
     uni.setStorageSync("userVo", loginVo?.userVo as UserVo);
     systemStore.setUserVo(loginVo.userVo ?? new UserVo())

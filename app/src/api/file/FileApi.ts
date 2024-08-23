@@ -1,17 +1,26 @@
 // @ts-nocheck
 import SuperApi from "@/common/basic/SuperApi";
-import {FileBo, FileSearchBo, FileVo} from "@/common/dto/file/File";
-import {GetMapping, HttpMapping, PostMapping, RequestBody, RequestParam, useRequest} from "@/config/request";
+import {FileBo, FileSearchBo, FileVo} from "@/common/dto/file/File"
 import Result from "@/common/basic/Result";
+import {axiosRequest} from "@/config/axios";
+import {ListUtil} from "@/util/ListUtil";
+import {ObjectUtil} from "@/util/ObjectUtil";
 
-@HttpMapping("/file")
-class FileApi extends SuperApi<FileVo, FileBo, FileSearchBo>{
 
-    @PostMapping("/upload")
-    async upload(@RequestBody() fromData:FormData):Promise<Result<FileVo> | undefined>{}
+class FileApi extends SuperApi<FileVo, FileBo, FileSearchBo> {
 
-    @GetMapping("/download")
-    async download(@RequestParam() obj:object):Promise<any>{}
+    constructor() {
+        super("file");
+    }
+
+    async upload(fromData: FormData) {
+        return await axiosRequest.post<FormData, Result<FileVo>>(`/file/upload`, fromData)
+    }
+
+
+    async download(obj: object) {
+        return await axiosRequest.get<object, any>(`/file/download? ${ObjectUtil.toGetParams(obj)}`)
+    }
 }
 
-export default useRequest<FileApi>(FileApi)
+export default new FileApi()

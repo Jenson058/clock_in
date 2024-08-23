@@ -12,10 +12,12 @@ import com.jenson.service.service.clock.RenewalService;
 
 import org.springframework.stereotype.Service;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -26,7 +28,7 @@ import com.jenson.service.util.ObjectUtil;
 import javax.annotation.Resource;
 
 @Service
-public class RenewalServiceImpl extends SuperServiceImpl<RenewalMapper,Renewal,RenewalVo, RenewalSearchBo> implements RenewalService{
+public class RenewalServiceImpl extends SuperServiceImpl<RenewalMapper, Renewal, RenewalVo, RenewalSearchBo> implements RenewalService {
     @Resource
     JPAQueryFactory jpaQueryFactory;
 
@@ -36,9 +38,9 @@ public class RenewalServiceImpl extends SuperServiceImpl<RenewalMapper,Renewal,R
     @Resource
     RenewalRepository renewalRepository;
 
-    QRenewal qRenewal = QRenewal.renewal;  
+    QRenewal qRenewal = QRenewal.renewal;
 
-@Override
+    @Override
     public Page<RenewalVo> pageAll(RenewalSearchBo searchBo) {
         JPAQuery<Renewal> jpaQuery = jpaQueryFactory
                 .selectFrom(qRenewal)
@@ -126,4 +128,8 @@ public class RenewalServiceImpl extends SuperServiceImpl<RenewalMapper,Renewal,R
         return qRenewal.deleted.eq(false);
     }
 
+    @Override
+    public RenewalVo getNewVersion() {
+        return ObjectUtil.copyNotNullProperties(renewalMapper.getNewVersion(), RenewalVo.class);
+    }
 }

@@ -25,8 +25,8 @@ async function initTable(){
   let searchBo = new RoleSearchBo(pageConfig.value.page,pageConfig.value.pageSize)
   RoleApi.pageAll(searchBo)
       .then(result =>{
-        initTableData.value = result?.content?.content ?? []
-        pageConfig.value.total = result?.content?.totalElements ?? 0
+        initTableData.value = result?.data?.content ?? []
+        pageConfig.value.total = result?.data?.totalElements ?? 0
       })
 }
 

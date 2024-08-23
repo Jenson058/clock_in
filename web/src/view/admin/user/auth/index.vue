@@ -35,9 +35,9 @@ function initAuth(){
   let id = {id:roleStore.getRoleVo().id ?? localStorage.getItem("roleId")}
   RoleApi.get(id)
       .then(result => {
-        authThis.value = result?.content?.authAll ?? []
+        authThis.value = result?.data?.authAll ?? []
         if (!roleStore.getRoleVo().id){
-          roleStore.setRoleVo(result?.content)
+          roleStore.setRoleVo(result?.data)
         }
       })
 }

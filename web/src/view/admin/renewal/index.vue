@@ -20,8 +20,8 @@ function initTable(){
   let searchBo = new RenewalSearchBo(pageConfig.value.page,pageConfig.value.pageSize)
   RenewalApi.pageAll(searchBo)
       .then(function (result){
-        initTableData.value = result.content.content
-        pageConfig.value.total = result.content.totalElements
+        initTableData.value = result?.data.content
+        pageConfig.value.total = result.data.totalElements
       })
 }
 

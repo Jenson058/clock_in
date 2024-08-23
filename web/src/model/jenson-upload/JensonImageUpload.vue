@@ -49,7 +49,7 @@ async function changFileList(value) {
   let searchBo = new FileSearchBo()
   searchBo.idList = idList
   const result = await FileApi.listAll(searchBo)
-  const data = result?.content
+  const data = result?.data
   fileList.value = data?.map(vo => FileVo.toUploadFile(vo) ?? [])
 }
 

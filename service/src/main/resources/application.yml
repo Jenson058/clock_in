@@ -12,6 +12,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: ${JPA_DDL:update}
+
+  web:
+    resources:
+      static-locations: classpath:/static-/
   servlet:
     multipart:
       max-file-size: 3MB

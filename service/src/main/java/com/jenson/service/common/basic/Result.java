@@ -16,7 +16,7 @@ public class Result<T> {
 
     private Integer code;
     private String msg;
-    private T content;
+    private T data;
 
     public static <T> Result<T> suc() {
         return new Result<T>().setCode(successCode).setMsg(successMsg);
@@ -27,11 +27,11 @@ public class Result<T> {
     }
 
     public static <T> Result<T> suc(T t) {
-        return new Result<T>().setCode(successCode).setMsg(successMsg).setContent(t);
+        return new Result<T>().setCode(successCode).setMsg(successMsg).setData(t);
     }
 
     public static <T> Result<T> suc(T t, String msg) {
-        return new Result<T>().setCode(successCode).setMsg(msg).setContent(t);
+        return new Result<T>().setCode(successCode).setMsg(msg).setData(t);
     }
 
     public static <T> Result<T> err() {
@@ -39,7 +39,7 @@ public class Result<T> {
     }
 
     public static <T> Result<T> err(T t) {
-        return new Result<T>().setCode(errorCode).setMsg(errorMsg).setContent(t);
+        return new Result<T>().setCode(errorCode).setMsg(errorMsg).setData(t);
     }
 
     public static <T> Result<T> err(String msg) {
@@ -47,7 +47,7 @@ public class Result<T> {
     }
 
     public static <T> Result<T> err(Integer code, T t) {
-        return new Result<T>().setCode(code).setContent(t);
+        return new Result<T>().setCode(code).setData(t);
     }
 
     public static <T> Result<T> err(Integer code, String msg) {
@@ -55,6 +55,6 @@ public class Result<T> {
     }
 
     public static <T> Result<T> err(Integer code, String msg,T t) {
-        return new Result<T>().setCode(code).setMsg(msg).setContent(t);
+        return new Result<T>().setCode(code).setMsg(msg).setData(t);
     }
 }

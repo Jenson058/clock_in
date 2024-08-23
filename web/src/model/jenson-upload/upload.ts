@@ -39,11 +39,11 @@ export async function upload(file:File,fileBo:FileBo){
         form.append("file", file.slice(start, end))
         form.append("fileBo", new Blob([JSON.stringify(fileBo)], {type: 'application/json'}))
         let result = await FileApi.upload(form)
-        if (result?.content?.finish) {
-            return result.content.id
+        if (result?.data?.finish) {
+            return result?.data.id
         }
-        // if (result?.content?.number_ != i) {
-        //     i = result?.content?.number_ as number
+        // if (result?.data?.number_ != i) {
+        //     i = result?.data?.number_ as number
         // }
     }
 }

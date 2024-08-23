@@ -5,42 +5,43 @@ import Result from "@/common/basic/Result";
 import {LoginVo} from "@/common/dto/system/login";
 import PageVo from "@/common/basic/PageVo";
 import {GetMapping, PostMapping, RequestBody, RequestParam} from "@/config/request";
+import {axiosRequest} from "@/config/axios";
+import {ObjectUtil} from "@/util/ObjectUtil";
 
 export default class SuperApi<Vo, Bo, SearchBo extends SuperSearchBo> {
 
-    @PostMapping("/page_all")
-    async pageAll(@RequestBody() searchBo: SearchBo): Promise<Result<PageVo<Vo>> | undefined> {
-        return undefined;
+    public readonly _url: string;
+
+    constructor(_url) {
+        this._url = _url;
     }
 
-    @PostMapping("/list_all")
-    async listAll(@RequestBody() searchBo: SearchBo): Promise<Result<Array<Vo>> | undefined> {
-        return undefined;
+    async pageAll(searchBo: SearchBo) {
+        return await axiosRequest.post<SearchBo, Result<PageVo<Vo>>>(`/${this._url}/page_all`, searchBo);
     }
 
-    @GetMapping("/get")
-    async get(@RequestParam obj: object): Promise<Result<Vo> | undefined> {
-        return undefined;
+    async listAll(searchBo: SearchBo) {
+        return await axiosRequest.post<SearchBo, Result<Array<Vo>>>(`/${this._url}/list_all`, searchBo,);
     }
 
-    @PostMapping("/edit")
-    async edit(@RequestBody() bo: Bo): Promise<Result<Vo> | undefined> {
-        return undefined;
+    async get(obj: object) {
+        return await axiosRequest.get<object, Result<Vo>>(`/${this._url}/get?${ObjectUtil.toGetParams(obj)}`);
     }
 
-    @PostMapping("/edit_all")
-    async editAll(@RequestBody() boList: Array<Bo>): Promise<Result<Array<Vo>> | undefined> {
-        return undefined;
+    async edit(bo: Bo) {
+        return await axiosRequest.post<Bo, Result<Vo>>(`/${this._url}/edit`, bo);
     }
 
-    @GetMapping("/del")
-    async del(@RequestParam obj: object): Promise<Result<Array<Vo>> | undefined> {
-        return undefined;
+    async editAll(boList: Array<Bo>) {
+        return await axiosRequest.post<Array<Bo>, Result<Array<Vo>>>(`/${this._url}/edit_all`, boList);
     }
 
-    @PostMapping("/del")
-    async delAll(@RequestBody() searchBo: SearchBo): Promise<Result<Array<Vo>> | undefined> {
-        return undefined;
+    async del(obj: object) {
+        return await axiosRequest.get<object, Result<Vo>>(`/${this._url}/del${ObjectUtil.toGetParams(obj)}`);
+    }
+
+    async delAll(searchBo: SearchBo) {
+        return await axiosRequest.post<SearchBo, Result<Array<Vo>>>(`/${this._url}/del`, searchBo);
     }
 
 

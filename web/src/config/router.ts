@@ -14,7 +14,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    mode: "history",
+    history: createWebHistory("clock"),
     routes:routes
 })
 
@@ -37,8 +38,8 @@ router.beforeEach((to, from, next)=>{
 
         UserApi.get({id:id})
             .then((result) => {
-                userStore.setUserVo(result?.content)
-                if (userStore.getUserVo().code !== "admin" && to.meta.auth && !ListUtil.exist(result?.content?.authList,to.meta.auth)){
+                userStore.setUserVo(result?.data)
+                if (userStore.getUserVo().code !== "admin" && to.meta.auth && !ListUtil.exist(result?.data?.authList,to.meta.auth)){
                     ElMessage.warning("没有权限访问"+to.meta.title)
                     next("/login")
                     return

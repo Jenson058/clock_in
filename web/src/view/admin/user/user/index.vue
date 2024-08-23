@@ -24,8 +24,8 @@ const userRoleList = ref<Array<number>>([])
 async function initTable() {
   let search = new UserSearchBo(pageConfig.value.page, pageConfig.value.pageSize)
   let result = await UserApi.pageAll(search)
-  initTableData.value = result?.content?.content ?? []
-  pageConfig.value.total = result?.content?.totalElements ?? 0
+  initTableData.value = result?.data?.content ?? []
+  pageConfig.value.total = result?.data?.totalElements ?? 0
 }
 
 function onContextMenu(e: MouseEvent) {

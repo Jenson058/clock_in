@@ -46,6 +46,8 @@ import {DateTimeUtil} from "@/util/TimeUtil";
 import useSystemStore from "@/store/system/SystemStore";
 import LogApi from "@/api/clock/LogApi";
 import {LogBo, LogSearchBo} from "@/common/dto/clock/Log";
+import AppUpdate from "@/AppUpdate";
+import RenewalApi from "@/api/renewal/RenewalApi";
 
 const time = ref(new Date())
 const systemStore = useSystemStore()
@@ -60,7 +62,7 @@ function toDayIsClockIn() {
   searchBo.userId = systemStore.getUserVo().id
   LogApi.toDayIsClockIn(searchBo)
       .then((result) => {
-        if (result?.content) {
+        if (result?.data) {
           wai_bg.value = "#c2edd9"
           zhong_bg.value = "#92d2b4"
           nei_bg.value = "#33c481"
@@ -84,7 +86,6 @@ function clock(){
 }
 
 onMounted(function () {
-  systemStore.getVersion()
   setInterval(function () {
     time.value = new Date()
   })
@@ -185,5 +186,10 @@ onMounted(function () {
   color: #fff;
   justify-content: center;
   align-items: center;
+}
+
+.popup{
+  width: 70vw;
+  height: 50vh;
 }
 </style>

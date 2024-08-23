@@ -2,20 +2,18 @@
 import {HttpMapping, PostMapping, RequestBody, useRequest} from "@/config/request";
 import {LoginBo, LoginVo} from "@/common/dto/system/login";
 import Result from "@/common/basic/Result";
+import {axiosRequest} from "@/config/axios";
 
-@HttpMapping("/system")
 class LoginApi{
 
-    @PostMapping("/login")
-    async login(@RequestBody() loginBo:LoginBo):Promise<Result<LoginVo> | undefined>{
-        return undefined;
+    async login(@RequestBody() loginBo:LoginBo){
+        return await axiosRequest.post<LoginBo,Result<LoginVo>>(`/system/login`,loginBo);
     }
 
-    @PostMapping("/update_password")
-    async updatePassword(@RequestBody() loginBo:LoginBo):Promise<Result<LoginVo> | undefined>{
-        return undefined;
+    async updatePassword(@RequestBody() loginBo:LoginBo){
+        return await axiosRequest.post<LoginBo,Result<LoginVo>>(`/system/update_password`,loginBo);
     }
 
 }
 
-export default useRequest<LoginApi>(LoginApi)
+export default new LoginApi()

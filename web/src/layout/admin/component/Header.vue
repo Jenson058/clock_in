@@ -75,7 +75,7 @@ async function submit(){
   let bo = {...userVo.value} as UserBo
   UserApi.edit(bo).then((result)=>{
     ElMessage.success("保存成功")
-    let userVo_ = result?.content
+    let userVo_ = result?.data
     userStore.setUserVo(userVo_)
     userVo.value = {...userVo_}
     isUpdate.value = false

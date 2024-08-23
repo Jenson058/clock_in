@@ -6,4 +6,6 @@ import com.jenson.service.common.dto.clock.Renewal;
 
 @Mapper
 public interface RenewalMapper extends BaseMapper<Renewal>{
+
+    Renewal getNewVersion();
 }

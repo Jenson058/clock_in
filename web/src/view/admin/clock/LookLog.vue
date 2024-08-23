@@ -40,7 +40,7 @@ function initTable() {
   searchBo.year = date.value.getFullYear()
   LogApi.listAll(searchBo)
       .then(function (result) {
-        logData.value = result.content
+        logData.value = result?.data
       })
 }
 

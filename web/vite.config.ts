@@ -11,6 +11,7 @@ export default ({mode}) =>{
     const env = loadEnv(mode,process.cwd())
     return defineConfig({
         plugins: [vue()],
+        base:"/clock/",
         resolve: {
             alias:{
                 "@":pathResolve("./src")

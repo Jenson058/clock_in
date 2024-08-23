@@ -41,7 +41,7 @@ const useSystemStore = defineStore("systemStore", {
         getVersion(){
             RenewalApi.get({id:this.versionId})
                 .then(function (result){
-                    this.renewalVo = result?.content
+                    this.renewalVo = result?.data
                 })
         }
     }
