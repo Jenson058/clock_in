@@ -4368,6 +4368,11 @@ uview-plus@^3.2.24:
     clipboard "^2.0.11"
     dayjs "^1.11.3"
 
+uview-ui@^2.0.37:
+  version "2.0.37"
+  resolved "https://registry.yarnpkg.com/uview-ui/-/uview-ui-2.0.37.tgz#b47263ebe41e7edbecd9574eba806a7f45d2bf22"
+  integrity sha512-iBcWNmQa01Wr+z004G6XIVPDctOrJIAx7LObQceUAPxZh6kJYjIOAMp5JE1K4VpoMV5bKYDpCd0gmX+M4nTEQQ==
+
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npmmirror.com/vary/-/vary-1.1.2.tgz"

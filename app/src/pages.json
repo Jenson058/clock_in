@@ -36,6 +36,13 @@
       }
     },
     {
+      "path": "pages/look/look",
+      "style": {
+        "navigationBarTitleText": "查看打卡",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
       "path": "pages/renewal/renewal",
       "style": {
         "navigationBarTitleText": "版本更新",
