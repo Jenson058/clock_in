@@ -130,6 +130,9 @@ public class RenewalServiceImpl extends SuperServiceImpl<RenewalMapper, Renewal,
 
     @Override
     public RenewalVo getNewVersion() {
+        if (Objects.isNull(renewalMapper.getNewVersion())) {
+            return null;
+        }
         return ObjectUtil.copyNotNullProperties(renewalMapper.getNewVersion(), RenewalVo.class);
     }
 }

@@ -35,6 +35,7 @@ function submit(){
   RenewalApi.edit(bo)
       .then(function (result){
         initTable()
+        editView.value = false
       })
 }
 </script>

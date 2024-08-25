@@ -14,7 +14,7 @@ export class FileVo{
     public static toUploadFile(fileVo: FileVo): UploadFile {
         return {
             name: fileVo?.oldFileName ?? "未命名文件",
-            url: `${import.meta.env.VITE_BACKEND_SERVER_URL}/api/file/download/?id=${fileVo?.id}`,
+            url: `${import.meta.env.VITE_BACKEND_SERVER_URL}/api/file/download?id=${fileVo?.id}`,
             response: fileVo.id
         } as UploadFile;
     }

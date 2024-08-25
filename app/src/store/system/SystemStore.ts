@@ -9,7 +9,7 @@ const useSystemStore = defineStore("systemStore", {
         return {
             userVo: new UserVo(),
             renewalVo: new RenewalVo(),
-            versionId: 1
+            version: "1.0.0"
         }
     },
     actions: {
@@ -39,10 +39,7 @@ const useSystemStore = defineStore("systemStore", {
             return new RenewalVo()
         },
         getVersion(){
-            RenewalApi.get({id:this.versionId})
-                .then(function (result){
-                    this.renewalVo = result?.data
-                })
+           return this.version;
         }
     }
 })

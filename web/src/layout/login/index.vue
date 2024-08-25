@@ -10,7 +10,7 @@ const loginBo = ref<LoginBo>(new LoginBo());
 const userStore = useUserStore()
 async function login() {
     LoginApi.login(loginBo.value).then(async (it)=> {
-        let loginVo = it?.content ?? new LoginVo()
+        let loginVo = it?.data ?? new LoginVo()
         localStorage.setItem("token", loginVo?.token as string)
         localStorage.setItem("userId",loginVo?.userVo?.id ?? "0" as string)
         userStore.setUserVo(loginVo.userVo)

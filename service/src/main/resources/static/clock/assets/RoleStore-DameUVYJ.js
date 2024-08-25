@@ -1,0 +1,1 @@
+import{G as e}from"./index-Dy3wVuRg.js";import{b as t}from"./RoleApi-D6Oyjcry.js";const s=e("RoleStore",{state:()=>({roleVo:new t}),actions:{getRoleVo(){return this.roleVo},setRoleVo(o){this.roleVo=o},setRoleAuthAll(o){this.roleVo.authAll=o}}});export{s as u};

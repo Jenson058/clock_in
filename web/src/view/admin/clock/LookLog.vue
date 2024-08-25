@@ -30,7 +30,7 @@ function initUser() {
   let searchBo = new UserSearchBo()
   UserApi.listAll(searchBo)
       .then(function (result) {
-        userList.value = result.content
+        userList.value = result?.data
       })
 }
 function initTable() {
