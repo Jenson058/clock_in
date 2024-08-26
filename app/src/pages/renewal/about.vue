@@ -1,5 +1,9 @@
 <script setup lang="ts">
 // @ts-nocheck
+
+import useSystemStore from "@/store/system/SystemStore";
+
+const systemStore = useSystemStore()
 </script>
 
 <template>
@@ -7,7 +11,7 @@
     <view class="logo">
       <u-image class="item" width="100px" height="100px" src="@/static/logo.png"/>
       <text class="item">打卡</text>
-      <text class="item">Version</text>
+      <text class="item">Version  {{systemStore.version}}</text>
     </view>
   </view>
 </template>

@@ -11,4 +11,7 @@ import javax.persistence.Entity;
 public class LogBo{
     private Integer id;
     private Integer userId;
+    private Integer year;
+    private Integer mouth;
+    private Integer day;
 }

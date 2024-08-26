@@ -3,7 +3,7 @@ import {onMounted, ref} from "vue";
 import LogApi from "@/api/clock/LogApi";
 import {LogSearchBo, LogVo} from "@/common/dto/clock/Log";
 import useSystemStore from "@/store/system/SystemStore";
-import {ListUtil} from "../../util/ListUtil";
+import {ListUtil} from "@/util/ListUtil";
 
 const weekList = ref(['日', '一', '二', '三', '四', '五', '六'])
 const year = ref(0)
@@ -75,10 +75,12 @@ function touchStart(e){
 
 function touchEnd(e){
   let deltaX = e.changedTouches[0].clientX - startX.value
-  if (deltaX >= 0){
-    updateMonth(-1)
-  }else {
-    updateMonth(1)
+  if (Math.abs(deltaX) > 50) {
+    if (deltaX >= 0){
+      updateMonth(-1)
+    }else {
+      updateMonth(1)
+    }
   }
 }
 </script>
@@ -127,12 +129,9 @@ function touchEnd(e){
       <view>
         <view class="week" v-for="week in weekDates">
           <view class="week-day-item" v-for="item in week">
-            <view class="week-day-width">{{ item }}</view>
-            <view class="week-day-width">{{
-                ListUtil.exist(logData.map(it => it.day), item)
-                    ?
-                    '✔️' : ''
-              }}</view>
+            <view class="week-day-width">
+              <view :class="`week-day-width-item ${ListUtil.exist(logData.map(day => day.day),item)?'clock':'no-clock'}`">{{ item }}</view>
+            </view>
           </view>
         </view>
       </view>
@@ -189,5 +188,18 @@ function touchEnd(e){
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.week-day-width-item{
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+.clock {
+  background: #00ffff;
 }
 </style>

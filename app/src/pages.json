@@ -36,9 +36,16 @@
       }
     },
     {
-      "path": "pages/look/look",
+      "path": "pages/transaction/look",
       "style": {
         "navigationBarTitleText": "查看打卡",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/transaction/replacement",
+      "style": {
+        "navigationBarTitleText": "补卡",
         "enablePullDownRefresh": false
       }
     },

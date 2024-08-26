@@ -9,7 +9,8 @@ const useSystemStore = defineStore("systemStore", {
         return {
             userVo: new UserVo(),
             renewalVo: new RenewalVo(),
-            version: "1.0.0"
+            version: "1.0.0",
+            nowNewVersion:"1.0.0"
         }
     },
     actions: {
@@ -25,21 +26,17 @@ const useSystemStore = defineStore("systemStore", {
             }
             return new UserVo()
         },
-        setRenewalVo(value: RenewalVo) {
-            uni.setStorageSync("renewalVo", value)
-            this.renewalVo = value
-        },
-        getRenewalVo() {
-            if (this.renewalVo.id) {
-                return this.renewalVo
-            } else if (uni.getStorageSync("renewalVo")) {
-                this.renewalVo = uni.getStorageSync("renewalVo")
-                return this.renewalVo
-            }
-            return new RenewalVo()
+        setVersion(value){
+          this.version = value
         },
         getVersion(){
            return this.version;
+        },
+        setNowNewVersion(value){
+            this.nowNewVersion = value;
+        },
+        getNowNewVersion(){
+            return this.nowNewVersion;
         }
     }
 })

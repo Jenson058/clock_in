@@ -25,7 +25,8 @@ import {ref} from "vue";
 
 const transaction = ref({
   basic:[
-      {name:"查看打卡",icon:"calendar",path:"/pages/look/look"}
+      {name:"查看打卡",icon:"calendar",path:"/pages/transaction/look"},
+      {name:"补卡",icon:"checkmark-circle",path:"/pages/transaction/replacement"},
   ]
 })
 

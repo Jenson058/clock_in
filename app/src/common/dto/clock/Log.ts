@@ -21,6 +21,9 @@ export class LogVo {
 export class LogBo {
     public id?:number
     public userId?:number
+    public year?:number
+    public mouth?:number
+    public day?:number
 }
 
 export class LogSearchBo extends SuperSearchBo{
